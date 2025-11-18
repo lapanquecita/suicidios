@@ -474,7 +474,7 @@ def top_dias(sexo_id, sexo, marker_color):
         ],
     )
 
-    fig.write_image(f"./dias_{sexo}.png")
+    fig.write_image(f"./dias_{sexo_id}.png")
 
 
 if __name__ == "__main__":

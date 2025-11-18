@@ -260,7 +260,7 @@ def main(sexo_id, sexo, plot_color, paper_color):
         text="🧁 @lapanquecita",
     )
 
-    fig.write_image(f"./heat_{sexo}.png")
+    fig.write_image(f"./heat_{sexo_id}.png")
 
 
 if __name__ == "__main__":
