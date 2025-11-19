@@ -19,7 +19,7 @@ Además de permitir análisis puntuales, el proyecto busca facilitar un flujo de
 
 Todo el trabajo parte de los microdatos de defunción del INEGI, que ofrecen un nivel de detalle considerable y permiten realizar filtrados muy específicos. Para garantizar la coherencia histórica, se implementó un proceso de selección que respeta los distintos sistemas de clasificación utilizados a lo largo del tiempo.
 
-* 1990–1997: se emplea el código 52 en el campo `LISTA_BAS`, correspondiente a agresiones autoinfligidas en la lista básica.
+* 1990–1997: se emplea el código 52 en el campo `LISTA_BAS`, correspondiente a lesiones autoinfligidas en la lista básica.
 * 1998 en adelante: el INEGI adopta la CIE-10, por lo que se utiliza el código 101 en el campo `LISTA1`.
 
 Este cambio de codificación representa un reto metodológico frecuente en estudios de largo plazo, por lo que se implementó una estrategia de equivalencias para mantener la comparabilidad.
@@ -55,6 +55,8 @@ Las tasas se estiman utilizando las proyecciones de población del CONAPO, lo qu
 ![Tendencia ahorcamiento](./imgs/tendencia_ahorcamiento.png)
 
 ![Tendencia envenenamiento](./imgs/tendencia_envenenamiento.png)
+
+En la carpeta imgs se incluyen las gráficas correspondientes a ambos sexos. En este documento se presentan únicamente las visualizaciones para hombres con el fin de optimizar el espacio y agilizar la lectura.
 
 ### mapa_coropletico.py
 
@@ -92,7 +94,7 @@ En las gráficas por edad y por entidad, el orden se define tomando como referen
 
 ### calendario.py
 
-Explora la distribución del fenómeno a lo largo del calendario anual. Genera una visualización tipo calendario en la que cada día del año se colorea según la frecuencia histórica registrada, lo que facilita la detección de patrones estacionales o fechas con recurrencia notable.
+Explora la distribución del fenómeno a lo largo del calendario anual. Genera una visualización tipo calendario en la que cada día del año se colorea según la frecuencia registrada, lo que facilita la detección de patrones estacionales o fechas con recurrencia notable.
 
 Como complemento se incluye una gráfica de barras con los días históricamente más frecuentes, proporcionando una lectura rápida de patrones temporales.
 
