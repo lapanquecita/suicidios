@@ -56,8 +56,6 @@ Las tasas se estiman utilizando las proyecciones de población del CONAPO, lo qu
 
 ![Tendencia envenenamiento](./imgs/tendencia_envenenamiento.png)
 
-En la carpeta imgs se incluyen las gráficas correspondientes a ambos sexos. En este documento se presentan únicamente las visualizaciones para hombres con el fin de optimizar el espacio y agilizar la lectura.
-
 ### mapa_coropletico.py
 
 Genera un mapa coroplético a nivel estatal que muestra cómo se distribuyen las tasas de suicidio entre las entidades federativas. Esta vista es útil para identificar regiones con mayor incidencia, contrastes geográficos y patrones territoriales persistentes.
@@ -91,6 +89,8 @@ En las gráficas por edad y por entidad, el orden se define tomando como referen
 ![Causas edad](./imgs/causas_edad_1.png)
 
 ![Causas entidad](./imgs/causas_entidad_1.png)
+
+En la carpeta imgs se incluyen las gráficas correspondientes a ambos sexos. En este documento se presentan únicamente las visualizaciones para hombres con el fin de optimizar el espacio y agilizar la lectura.
 
 ### calendario.py
 
