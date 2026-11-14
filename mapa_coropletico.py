@@ -108,7 +108,7 @@ def main(año):
     df["tasa"] = df["total"] / df["poblacion"] * 100000
 
     # Ordenamos el DataFrame por la tasa de mayor a menor.
-    df.sort_values("tasa", ascending=False, inplace=True)
+    df = df.sort_values("tasa", ascending=False)
 
     # Determinamos los valores mínimos y máximos para nuestra escala.
     valor_min = df["tasa"].min()
@@ -119,7 +119,7 @@ def main(año):
     etiquetas = [f"{item:,.1f}" for item in marcas]
 
     # Cargamos el GeoJSON de México.
-    geojson = json.loads(open("./assets/mexico.json", "r", encoding="utf-8").read())
+    geojson = json.load(open("./assets/mexico.json", "r", encoding="utf-8"))
 
     fig = go.Figure()
 
@@ -131,7 +131,7 @@ def main(año):
             geojson=geojson,
             locations=df.index,
             z=df["tasa"],
-            featureidkey="properties.NOMGEO",
+            featureidkey="properties.NOM_ENT",
             colorscale="deep_r",
             marker_line_color="#FFFFFF",
             marker_line_width=1.5,
@@ -185,7 +185,7 @@ def main(año):
                 y=1.025,
                 xanchor="center",
                 yanchor="top",
-                text=f"Tasas de suicidio en México durante {año} según entidad de residencia",
+                text=f"Suicidios registrados en México durante {año}",
                 font_size=42,
             ),
             dict(
@@ -217,6 +217,19 @@ def main(año):
                 yanchor="top",
                 text="🧁 @lapanquecita",
             ),
+            dict(
+                x=0.99,
+                y=0.93,
+                align="left",
+                xanchor="right",
+                yanchor="top",
+                borderpad=7,
+                borderwidth=1,
+                bordercolor="#FFFFFF",
+                bgcolor=PLOT_COLOR,
+                font_size=22,
+                text="<b>Nota:</b><br>La columna «Total» incluye las defunciones<br>de hombres, mujeres y sexo no especificado.",
+            ),
         ],
     )
 
@@ -235,7 +248,7 @@ def main(año):
             columnwidth=[140, 70, 70, 70, 95],
             header=dict(
                 values=[
-                    "<b>Entidad</b>",
+                    "<b>Entidad residencia</b>",
                     "<b>Hombres</b>",
                     "<b>Mujeres</b>",
                     "<b>Total</b>",
@@ -271,7 +284,7 @@ def main(año):
             columnwidth=[140, 70, 70, 70, 95],
             header=dict(
                 values=[
-                    "<b>Entidad</b>",
+                    "<b>Entidad residencia</b>",
                     "<b>Hombres</b>",
                     "<b>Mujeres</b>",
                     "<b>Total</b>",
@@ -335,4 +348,4 @@ def main(año):
 
 
 if __name__ == "__main__":
-    main(2024)
+    main(2025)

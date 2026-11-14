@@ -341,7 +341,8 @@ def causas_tendencia(sexo_id, sexo, plot_color, paper_color):
         ticks="outside",
         ticklen=10,
         zeroline=False,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showline=True,
         showgrid=True,
@@ -357,7 +358,8 @@ def causas_tendencia(sexo_id, sexo, plot_color, paper_color):
         ticks="outside",
         ticklen=10,
         title_standoff=15,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showgrid=False,
         showline=True,
@@ -495,7 +497,7 @@ def causas_entidad(sexo_id, sexo, plot_color, paper_color):
         df[columna] = df[columna] / df["total"] * 100
 
     # Ordenamos por ahorcamiento.
-    df.sort_values("ahorcamiento", ascending=True, inplace=True)
+    df = df.sort_values("ahorcamiento", ascending=True)
 
     fig = go.Figure()
 
@@ -525,7 +527,8 @@ def causas_entidad(sexo_id, sexo, plot_color, paper_color):
         ticksuffix="%",
         ticklen=10,
         zeroline=False,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showline=True,
         showgrid=False,
@@ -535,10 +538,10 @@ def causas_entidad(sexo_id, sexo, plot_color, paper_color):
 
     fig.update_yaxes(
         tickfont_size=20,
-        tickfont_color="#FFFFFF",
         ticks="outside",
         ticklen=10,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showgrid=False,
         showline=True,
@@ -692,7 +695,8 @@ def causas_edad(sexo_id, sexo, plot_color, paper_color):
         ticksuffix="%",
         ticklen=10,
         zeroline=False,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showline=True,
         showgrid=False,
@@ -702,11 +706,11 @@ def causas_edad(sexo_id, sexo, plot_color, paper_color):
 
     fig.update_yaxes(
         title_text="Grupo de edad al momento de la defunción (número de registros)",
-        tickfont_color="#FFFFFF",
         ticks="outside",
         ticklen=10,
         title_standoff=20,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showgrid=False,
         showline=True,
@@ -772,7 +776,7 @@ def causas_edad(sexo_id, sexo, plot_color, paper_color):
 
 
 if __name__ == "__main__":
-    causas(2024)
+    causas(2025)
 
     causas_tendencia(1, "hombres", "#0A1410", "#13261D")
     causas_tendencia(2, "mujeres", "#18122B", "#393053")

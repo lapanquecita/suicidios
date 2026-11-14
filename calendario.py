@@ -388,7 +388,8 @@ def top_dias(sexo_id, sexo, marker_color):
         ticks="outside",
         ticklen=10,
         zeroline=False,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showline=True,
         showgrid=True,
@@ -403,7 +404,8 @@ def top_dias(sexo_id, sexo, marker_color):
         ticks="outside",
         ticklen=10,
         title_standoff=15,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         gridwidth=0.5,
         showline=True,
@@ -478,7 +480,7 @@ def top_dias(sexo_id, sexo, marker_color):
 
 
 if __name__ == "__main__":
-    crear_calendario(2024)
+    crear_calendario(2025)
 
     top_dias(1, "hombres", "#00897b")
     top_dias(2, "mujeres", "#ef5350")

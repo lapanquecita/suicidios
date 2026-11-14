@@ -82,12 +82,16 @@ def tendencia_general():
 
     # Preparamos los textos.
     df["hombres_texto"] = df.apply(
-        lambda x: f"<span style='color:#b3e5fc'><b>{x['hombres_tasa']:,.2f}</b></span><br>({x[1]:,.0f})",
+        lambda x: (
+            f"<span style='color:#b3e5fc'><b>{x['hombres_tasa']:,.2f}</b></span><br>({x[1]:,.0f})"
+        ),
         axis=1,
     )
 
     df["mujeres_texto"] = df.apply(
-        lambda x: f"<span style='color:#ffe082'><b>{x['mujeres_tasa']:,.2f}</b></span><br>({x[2]:,.0f})",
+        lambda x: (
+            f"<span style='color:#ffe082'><b>{x['mujeres_tasa']:,.2f}</b></span><br>({x[2]:,.0f})"
+        ),
         axis=1,
     )
 
@@ -160,7 +164,8 @@ def tendencia_general():
         ticks="outside",
         ticklen=10,
         zeroline=False,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showline=True,
         showgrid=True,
@@ -170,10 +175,9 @@ def tendencia_general():
     )
 
     # Calculamos la escala vertical.
-    tasas = df[["hombres_tasa", "mujeres_tasa"]].values.flatten()
-    valor_min = np.min(tasas)
-    valor_max = np.max(tasas)
-    diferencia = (valor_max - valor_min) * 0.12
+    valor_max = max(df["hombres_tasa"].max(), df["mujeres_tasa"].max())
+    valor_min = min(df["hombres_tasa"].min(), df["mujeres_tasa"].min())
+    diferencia = (valor_max * 1.12) - valor_max
 
     fig.update_yaxes(
         title="Tasa por cada 100,000 hombres/mujeres",
@@ -181,7 +185,8 @@ def tendencia_general():
         ticks="outside",
         ticklen=10,
         title_standoff=15,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         gridwidth=0.5,
         showline=True,
@@ -193,7 +198,7 @@ def tendencia_general():
     fig.update_layout(
         legend_itemsizing="constant",
         legend_borderwidth=1,
-        legend_bordercolor="#FFFFFF",
+        legend_bordercolor="#EEEEEE",
         showlegend=True,
         legend_x=0.01,
         legend_y=0.98,
@@ -315,12 +320,16 @@ def tendencia_causa(causa, xanchor="left"):
 
     # Preparamos los textos.
     df["hombres_texto"] = df.apply(
-        lambda x: f"<span style='color:#b3e5fc'><b>{x['hombres_tasa']:,.2f}</b></span><br>({x[1]:,.0f})",
+        lambda x: (
+            f"<span style='color:#b3e5fc'><b>{x['hombres_tasa']:,.2f}</b></span><br>({x[1]:,.0f})"
+        ),
         axis=1,
     )
 
     df["mujeres_texto"] = df.apply(
-        lambda x: f"<span style='color:#ffe082'><b>{x['mujeres_tasa']:,.2f}</b></span><br>({x[2]:,.0f})",
+        lambda x: (
+            f"<span style='color:#ffe082'><b>{x['mujeres_tasa']:,.2f}</b></span><br>({x[2]:,.0f})"
+        ),
         axis=1,
     )
 
@@ -393,7 +402,8 @@ def tendencia_causa(causa, xanchor="left"):
         ticks="outside",
         ticklen=10,
         zeroline=False,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showline=True,
         showgrid=True,
@@ -403,10 +413,9 @@ def tendencia_causa(causa, xanchor="left"):
     )
 
     # Calculamos la escala vertical.
-    tasas = df[["hombres_tasa", "mujeres_tasa"]].values.flatten()
-    valor_min = np.min(tasas)
-    valor_max = np.max(tasas)
-    diferencia = (valor_max - valor_min) * 0.12
+    valor_max = max(df["hombres_tasa"].max(), df["mujeres_tasa"].max())
+    valor_min = min(df["hombres_tasa"].min(), df["mujeres_tasa"].min())
+    diferencia = (valor_max * 1.12) - valor_max
 
     fig.update_yaxes(
         title="Tasa por cada 100,000 hombres/mujeres",
@@ -414,7 +423,8 @@ def tendencia_causa(causa, xanchor="left"):
         ticks="outside",
         ticklen=10,
         title_standoff=15,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         gridwidth=0.5,
         showline=True,
@@ -426,7 +436,7 @@ def tendencia_causa(causa, xanchor="left"):
     fig.update_layout(
         legend_itemsizing="constant",
         legend_borderwidth=1,
-        legend_bordercolor="#FFFFFF",
+        legend_bordercolor="#EEEEEE",
         showlegend=True,
         legend_x=0.01 if xanchor == "left" else 0.99,
         legend_y=0.98,

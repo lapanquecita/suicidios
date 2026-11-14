@@ -116,7 +116,7 @@ def main(sexo_id, sexo, plot_color, paper_color):
             x=df.columns,
             y=df.index,
             z=df,
-            colorscale="bluered",
+            colorscale=["#0647C8", "#C62828"],
             zmax=valor_max,
             zmin=valor_min,
             colorbar=dict(
@@ -124,11 +124,11 @@ def main(sexo_id, sexo, plot_color, paper_color):
                 title_side="right",
                 ticks="outside",
                 outlinewidth=2,
-                outlinecolor="#FFFFFF",
+                outlinecolor="#EEEEEE",
                 tickvals=marcas,
                 ticktext=etiquetas,
                 tickwidth=3,
-                tickcolor="#FFFFFF",
+                tickcolor="#EEEEEE",
                 ticklen=10,
             ),
         )
@@ -138,7 +138,8 @@ def main(sexo_id, sexo, plot_color, paper_color):
         ticks="outside",
         ticklen=10,
         zeroline=False,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showline=True,
         showgrid=False,
@@ -150,7 +151,8 @@ def main(sexo_id, sexo, plot_color, paper_color):
         ticks="outside",
         ticklen=10,
         title_standoff=15,
-        tickcolor="#FFFFFF",
+        tickcolor="#EEEEEE",
+        linecolor="#EEEEEE",
         linewidth=2,
         showgrid=False,
         showline=True,
@@ -187,29 +189,13 @@ def main(sexo_id, sexo, plot_color, paper_color):
                 font_color="#FFFFFF",
             )
 
-    # Agregamos líneas vericales.
-    for i in range(len(df.columns)):
-        fig.add_shape(
-            type="line",
-            x0=i + 0.5,
-            x1=i + 0.5,
-            y0=0.0 - 0.5,
-            y1=len(df.index) - 0.5,
-            line_color="#FFFFFF",
-            line_width=1,
-        )
+    # Vamos a dibujar nuestra propia cuadrícula.
+    # Necesitamos desfazarla para que coincida con los límites de cada celda.
+    for x in range(len(df.columns)):
+        fig.add_vline(x + 0.5, line_color="#EEEEEE")
 
-    # Agregamos líneas horizontales.
-    for i in range(len(df.index)):
-        fig.add_shape(
-            type="line",
-            x0=0.0 - 0.5,
-            x1=len(df.columns) - 0.5,
-            y0=i + 0.5,
-            y1=i + 0.5,
-            line_color="#FFFFFF",
-            line_width=1,
-        )
+    for y in range(len(df.index)):
+        fig.add_hline(y + 0.5, line_color="#EEEEEE")
 
     fig.update_layout(
         showlegend=False,

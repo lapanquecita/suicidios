@@ -62,7 +62,7 @@ Genera un mapa coroplético a nivel estatal que muestra cómo se distribuyen las
 
 En la parte inferior se presenta un desglose por entidad y sexo, ordenado de mayor a menor, que facilita la comparación entre estados.
 
-![Mapa México](./imgs/mapa_2024.png)
+![Mapa México](./imgs/mapa_2025.png)
 
 ### mapa_calor.py
 
@@ -82,7 +82,7 @@ Comienza con comparaciones por sexo usando gráficas de dona para mostrar propor
 
 En las gráficas por edad y por entidad, el orden se define tomando como referencia la categoría de ahorcamiento, ya que históricamente es la más frecuente y ofrece un punto de comparación estable.
 
-![Causas sexo](./imgs/causas_2024.png)
+![Causas sexo](./imgs/causas_2025.png)
 
 ![Causas tendencia](./imgs/causas_anual_1.png)
 
@@ -98,7 +98,7 @@ Explora la distribución del fenómeno a lo largo del calendario anual. Genera u
 
 Como complemento se incluye una gráfica de barras con los días históricamente más frecuentes, proporcionando una lectura rápida de patrones temporales.
 
-![Calendario](./imgs/calendario_2024.png)
+![Calendario](./imgs/calendario_2025.png)
 
 ![Top días](./imgs/dias_1.png)
 
